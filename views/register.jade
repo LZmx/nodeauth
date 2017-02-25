@@ -1,0 +1,23 @@
+extends layout.jade
+
+block content
+  h2.page-header Register
+  p Please register using the form below
+  if errors
+    each error, i in errors
+      div.alert.alert-danger #{error.msg}
+  form(method="post", action="/users/register", enctype='multipart/form-data')
+    .form-group
+    label(for='name') Name
+    input.form-control(type='text', name='name', placeholder='Enter Name')
+    label(for='email') Email
+    input.form-control(type='email', name='email' placeholder='Enter Email')
+    label(for='username') Username
+    input.form-control(type='text', name='username' placeholder='Enter Username')
+    label(for='password') Password
+    input.form-control(type='password', name='password' placeholder='Enter Password')
+    label(for='password2') Confirm Password
+    input.form-control(type='password', name='password2' placeholder='Confirm Password')
+    label(for='profileimage') Profile Image
+    input.form-control(type='file', name='profileimage')
+    input.btn.btn-primary(type="submit", name="submit", value="Register")
